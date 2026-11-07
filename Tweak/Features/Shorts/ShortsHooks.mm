@@ -1030,7 +1030,7 @@ static void YTKACEShortsTimeChanged(NSNotification *notification) {
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     id delayValue = YTKACEPreferenceObject(@"YTKACE.Preference.Shorts.AutoScrollDelay");
     const double delay = [delayValue respondsToSelector:@selector(doubleValue)]
-        ? MAX(0.0, MIN([delayValue doubleValue], 5.0)) : 0.0;
+        ? MAX(0.0, MIN([delayValue doubleValue], 10.0)) : 2.0;
     if (delay <= 0.0) {
         if (!YTKACEAdvanceShort(shorts, player)) {
             objc_setAssociatedObject(shorts, YTKACEShortsSkipAssociation, nil,
