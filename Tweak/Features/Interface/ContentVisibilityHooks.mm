@@ -1085,7 +1085,7 @@ static BOOL YTKACEChildClassContains(id section, NSArray<NSString *> *needles) {
     return NO;
 }
 
-static const NSUInteger YTKACEFeedChildScanLimit = 64;
+static const NSUInteger YTKACEFeedChildScanLimit = 192;
 
 static _Atomic BOOL YTKACEFeedHideShorts = NO;
 static _Atomic BOOL YTKACEFeedKeepHomeShorts = NO;
@@ -1494,7 +1494,7 @@ static YTKACEFeedKind YTKACEFeedKindStructural(id section,
         scanned++;
         found |= YTKACEFeedKindForNode(node, wanted & ~found);
         if ((found & wanted) == wanted) return found;
-        if (depth.unsignedIntegerValue >= 3) continue;
+        if (depth.unsignedIntegerValue >= 5) continue;
         NSNumber *next = @(depth.unsignedIntegerValue + 1);
         if ([node isKindOfClass:NSArray.class]) {
             for (id child in (NSArray *)node) {
